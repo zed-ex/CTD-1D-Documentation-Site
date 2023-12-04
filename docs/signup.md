@@ -38,13 +38,13 @@ Creation of user input texts to be displayed on the screen with access
 to the place method to achieve the desired position of the label element. 
 
 The overall purpose of this code is to ensure that the user's input in the 
-Entry widget 'self.user_entry' is validated according to the rules defined in the 'validate_username' function.
+Entry widget `self.user_entry` is validated according to the rules defined in the 'validate_username' function.
 
-'self.register(self.validate_username)': Registers a validation function called 'validate_username'. The register method is used to create a Tcl wrapper for a Python function, making it callable from Tcl (Tool Command Language).
+`self.register(self.validate_username)`: Registers a validation function called `validate_username`. The register method is used to create a Tcl wrapper for a Python function, making it callable from Tcl (Tool Command Language).
 
-'validate="key"': Specifies that the validation should occur whenever a key is pressed. In other words, the validation function 'validate_username' will be called each time a key is pressed in the Entry widget.
+`validate="key"`: Specifies that the validation should occur whenever a key is pressed. In other words, the validation function `validate_username` will be called each time a key is pressed in the Entry widget.
 
-'validatecommand=(validate_cmd, "%P")': Specifies the validation command to be executed. %P is a special substitution code that represents the value of the Entry widget if the edit is allowed. Here, it passes the current content of the Entry widget to the validation function.
+`validatecommand=(validate_cmd, "%P")`: Specifies the validation command to be executed. %P is a special substitution code that represents the value of the Entry widget if the edit is allowed. Here, it passes the current content of the Entry widget to the validation function.
 ``` py
     ### Username Entry
     validate_cmd = self.register(self.validate_username)
@@ -54,9 +54,9 @@ Entry widget 'self.user_entry' is validated according to the rules defined in th
 ``` 
 
 ### tk.Button(param_&_values).place(positioning_params)
-'self.submit_btn': This interface calls the method 'dbUpload()' upon being pressed to upload the user's score and username to the database. It is immediately disabled upon submission of the entry to prevent users from submitting multiple scores with the same/different username.
+`self.submit_btn`: This interface calls the method `dbUpload()` upon being pressed to upload the user's score and username to the database. It is immediately disabled upon submission of the entry to prevent users from submitting multiple scores with the same/different username.
 
-'self.next_btn': This interface calls the method 'show_scores()' upon being pressed to transition to the next UI window.
+`self.next_btn`: This interface calls the method `show_scores()` upon being pressed to transition to the next UI window.
 ``` py
     ### Submit Btn
     self.submit_btn = tk.Button(
@@ -89,7 +89,7 @@ def validate_username(self, new_value):
 
 ### def dbUpload(self)
 The method changes the state of the button to disabled preventing further user entries and uploads the user's username and score to the database. 
-The '.strip()' method is used to remove any excess spaces before and after the username input. 
+The `.strip()` method is used to remove any excess spaces before and after the username input. 
 ``` py
     def dbUpload(self):
         self.submit_btn.configure(state='disabled')
@@ -98,7 +98,7 @@ The '.strip()' method is used to remove any excess spaces before and after the u
 ```
 
 ### def show_scores(self)
-The method destroys the current window and opens up the 'Scores()' Class as the new window.
+The method destroys the current window and opens up the `Scores()` Class as the new window.
 ``` py
 def show_scores(self):
         self.destroy()
