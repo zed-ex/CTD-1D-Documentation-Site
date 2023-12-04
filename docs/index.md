@@ -10,7 +10,7 @@
 * Chong Zhi Xun (1008140)
 
 ## Description
-#### Scenario
+### Scenario
 This game is aimed at children who are just starting to learn their multiplication tables. By gamifying the process, we hope to make the entire learning journey more entertaining.
 
 ### Description of the game
