@@ -8,7 +8,10 @@ def __init__(self, master = None):
     self.master.rowconfigure(0, weight=1)
     self.master.geometry("500x500")
     self.master.title('CTD 1D Project Team 11C')
-        
+```
+### tk.Label(param_&_values).place(positioning_params)
+The Labels made are displayed to the user as follows: "Thank you for playing", "Credits", "Team member names + (student ID)"
+``` py
     ### Labels
     self.label = tk.Label(
         self, 
@@ -30,7 +33,13 @@ def __init__(self, master = None):
         font=c.USERNAME_LABEL
         bg='#93B7BE'
         ).place(relx=0.5, rely=0.4, anchor=tk.CENTER)
-    
+```
+
+### tk.Button(param_&_values).place(positioning_params)
+self.play_agn_btn: This interface calls the method confirm_prompt() upon being pressed to open a new window to display the messagebox.askyesorno.
+
+self.back_btn: This interface calls the method goBack() upon being pressed to transition to the previous UI window.
+``` py
     ### Return to Game Btn 
     self.play_agn_btn = tk.Button(
         self, 
@@ -51,7 +60,7 @@ def __init__(self, master = None):
 ```
 
 ### def confirm_prompt(self)
-Confirm if player wishes to play again.
+Messagebox to confirm if the user wishes to play again. If yes, the method show_game() will be called. If no, the system will close and return the user to the terminal.
 ``` py
 def confirm_prompt(self):
     response = messagebox.askyesno("Play Again :))", "Are You Sure You Want To Play Again?")
@@ -62,7 +71,7 @@ def confirm_prompt(self):
 ```
 
 ### def goBack(self)
-Go back to Score page.
+The method destroys the current window and opens up the Scores() Class as the new window.
 ``` py
 def goBack(self):
     self.master.destroy()
@@ -71,7 +80,7 @@ def goBack(self):
 ```
 
 ### def show_game(self)
-Go back to Game page.
+The method destroys the current window and opens up the Game() Class as the new window.
 ``` py
 def show_game(self):
     self.master.destroy()
