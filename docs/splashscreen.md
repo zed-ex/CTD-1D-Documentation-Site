@@ -1,4 +1,5 @@
 ### def __init__(self, master = None)
+Splashscreen here is the first window that pops up after the entire code has been executed. Once the player clicks start it, the game starts. 
 Initialise SplashScreen Tkinter frame.
 ``` py 
 def __init__(self, master = None):
@@ -12,7 +13,9 @@ def __init__(self, master = None):
     # Set up splash screen layout    
     width=400
     height=400  
-
+```
+### Setting Image as the Background.
+``` py 
     image = Image.open("1.jpg")
     resize_image = image.resize((width, height))
     img = ImageTk.PhotoImage(resize_image)
