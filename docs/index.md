@@ -9,5 +9,9 @@
 * Varsha Ramesh (1008477)
 * Chong Zhi Xun (1008140)
 
-Childhood Development for Critical Thinking
+## Description
+#### Scenario
+This game is aimed at children who are just starting to learn their multiplication tables. By gamifying the process, we hope to make the entire learning journey more entertaining.
 
+### Description of the game
+2048 is a puzzle game that challenges players to combine numered tiles strategically to reach the 2048 tile.
