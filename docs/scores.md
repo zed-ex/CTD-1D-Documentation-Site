@@ -11,11 +11,11 @@ def __init__(self, master = None):
 ```
 
 ### self.selectionDropdown = tk.OptionMenu()
-options: a list containing options available in the dropdown menu.
+`options`: a list containing options available in the dropdown menu.
 
-self.selected_option: StringVar() is used to track currently selected options in the dropdown menu.
+`self.selected_option`: `StringVar()` is used to track currently selected options in the dropdown menu.
 
-self.selectionDropdown = tk.OptionMenu(): When an option tracked by StringVar() is selected, the method show() is called to make a query request to the database to retrieve the respective filtered entries of highest score to lowest or the most recent scores.  
+`self.selectionDropdown = tk.OptionMenu()`: When an option tracked by `StringVar()` is selected, the method `show()` is called to make a query request to the database to retrieve the respective filtered entries of highest score to lowest or the most recent scores.  
 ``` py
     ### Dropdown Menu
     options = ["Leaderboard", "Recent Scores"]     
@@ -47,7 +47,7 @@ The retrieved filtered entries are displayed inside the interface frame and its 
 ```
 
 ### self.next_btn:
-This interface calls the method show_ending() upon being pressed to transition to the next UI window.
+This interface calls the method `show_ending()` upon being pressed to transition to the next UI window.
 ``` py
     ### Next Btn 
     self.next_btn = tk.Button(
@@ -62,16 +62,16 @@ This interface calls the method show_ending() upon being pressed to transition t
 ```
 
 ### def show(self, *args)
-leaderboard_content: db.fetch_high_scores() is a method from the database_interface.py file that is used to query for the top 10 highest scores in the database. 
+`leaderboard_content`: `db.fetch_high_scores()` is a method from the `database_interface.py` file that is used to query for the top 10 highest scores in the database. 
 
-recent_content: db.fetch_latest_scores() is a method from the database_interface.py file that is used to query for the top 10 most recent scores in the database.
+`recent_content`: `db.fetch_latest_scores()` is a method from the `database_interface.py` file that is used to query for the top 10 most recent scores in the database.
 
-self.display_scores.configure(state='normal'): enables display_scores to be modified.
-self.display_scores.configure(state='disabled'): disables display_scores to be modified.
+`self.display_scores.configure(state='normal')`: enables `display_scores` to be modified.
+`self.display_scores.configure(state='disabled')`: disables `display_scores` to be modified.
 
-self.display_scores.delete(1.0, tk.END): clears the current content in display_scores
+`self.display_scores.delete(1.0, tk.END)`: clears the current content in `display_scores`
 
-self.display_scores.insert(tk.END, row_str + "\n\n"): inserts a formatted string of each row in display_scores
+`self.display_scores.insert(tk.END, row_str + "\n\n")`: inserts a formatted string of each row in `display_scores`
 ``` py
 def show(self, *args):
     selected_option = self.selected_option.get()
@@ -97,7 +97,7 @@ def show(self, *args):
 ```
 
 ### def show_ending(self)
-The method destroys the current window and opens up the Ending() Class as the new window.
+The method destroys the current window and opens up the `Ending()` Class as the new window.
 ``` py
 def show_ending(self):
     self.destroy()
