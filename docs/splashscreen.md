@@ -22,7 +22,9 @@ def __init__(self, master = None):
     label1 = tk.Label(self.master,image=img)
     label1.image = img
     label1.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
-
+```
+### Buttons to start playing the Game and to quit the Game Window.
+``` py 
    # Add "Play" button 
    self.bt1=tk.Button(
        self.master,
