@@ -2,6 +2,7 @@
 Initialise Scores Tkinter frame.
 ``` py
 def __init__(self, master = None):
+    # Initialize the frame with background color and grid settings
     tk.Frame.__init__(self, master, bg='#8447FF')
     self.grid(sticky="nsew")
     self.master.columnconfigure(0, weight=1)
@@ -17,7 +18,7 @@ def __init__(self, master = None):
 
 `self.selectionDropdown = tk.OptionMenu()`: When an option tracked by `StringVar()` is selected, the method `show()` is called to make a query request to the database to retrieve the respective filtered entries of highest score to lowest or the most recent scores.  
 ``` py
-    ### Dropdown Menu
+    ### Dropdown Menu for selecting Leaderboard or Recent Scores
     options = ["Leaderboard", "Recent Scores"]     
 
     self.selected_option = tk.StringVar(self)
@@ -49,7 +50,7 @@ The retrieved filtered entries are displayed inside the interface frame and its 
 ### self.next_btn:
 This interface calls the method `show_ending()` upon being pressed to transition to the next UI window.
 ``` py
-    ### Next Btn 
+    ### Next Button to navigate to the ending screen 
     self.next_btn = tk.Button(
         self, 
         text="NEXT >",
@@ -74,6 +75,7 @@ This interface calls the method `show_ending()` upon being pressed to transition
 `self.display_scores.insert(tk.END, row_str + "\n\n")`: inserts a formatted string of each row in `display_scores`
 ``` py
 def show(self, *args):
+    # Method to handle the dropdown selection and display the corresponding scores
     selected_option = self.selected_option.get()
     leaderboard_content = db.fetch_high_scores()
     recent_content = db.fetch_latest_scores()
@@ -88,6 +90,7 @@ def show(self, *args):
         self.selectionDropdown.configure(bg='#CEB992')
         self.display_scores.configure(bg='#CEB992')
 
+    # Configure and update the display area with scores
     self.display_scores.configure(state='normal')
     self.display_scores.delete(1.0, tk.END)
     for row in content:
@@ -99,6 +102,7 @@ def show(self, *args):
 ### def show_ending(self)
 The method destroys the current window and opens up the `Ending()` Class as the new window.
 ``` py
+# Method to navigate to the ending screen
 def show_ending(self):
     self.destroy()
     ending_window = Ending()
