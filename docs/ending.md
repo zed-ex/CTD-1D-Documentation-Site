@@ -2,6 +2,7 @@
 Initialise Ending Tkinter frame.
 ``` py
 def __init__(self, master = None):
+    # Initialize the frame with background color and grid settings
     tk.Frame.__init__(self, master, bg='#CA6680')
     self.grid(sticky="nsew")
     self.master.columnconfigure(0, weight=1)
@@ -12,7 +13,7 @@ def __init__(self, master = None):
 ### tk.Label(param_&_values).place(positioning_params)
 The Labels made are displayed to the user as follows: "Thank you for playing", "Credits", "Team member names + (student ID)"
 ``` py
-    ### Labels
+    ### Labels for the ending screen
     self.label = tk.Label(
         self, 
         text="THANK YOU FOR PLAYING!", 
@@ -40,7 +41,7 @@ self.play_agn_btn: This interface calls the method confirm_prompt() upon being p
 
 self.back_btn: This interface calls the method goBack() upon being pressed to transition to the previous UI window.
 ``` py
-    ### Return to Game Btn 
+    ### Return to Game Btn with confirmation prompt
     self.play_agn_btn = tk.Button(
         self, 
         text="PLAY AGAIN?",
@@ -49,7 +50,7 @@ self.back_btn: This interface calls the method goBack() upon being pressed to tr
         command=self.confirm_prompt
         ).place(relx=0.85, rely=0.71, anchor=tk.CENTER)
     
-    ### Return to Display Score Page
+    ### Button to go back to the scores screen
     self.back_btn = tk.Button(
         self,
         text="< BACK",
@@ -62,6 +63,7 @@ self.back_btn: This interface calls the method goBack() upon being pressed to tr
 ### def confirm_prompt(self)
 Messagebox to confirm if the user wishes to play again. If yes, the method show_game() will be called. If no, the system will close and return the user to the terminal.
 ``` py
+# Method to display a confirmation prompt before playing again
 def confirm_prompt(self):
     response = messagebox.askyesno("Play Again :))", "Are You Sure You Want To Play Again?")
     if (response == 1):
@@ -73,6 +75,7 @@ def confirm_prompt(self):
 ### def goBack(self)
 The method destroys the current window and opens up the Scores() Class as the new window.
 ``` py
+# Method to go back to the scores screen
 def goBack(self):
     self.master.destroy()
     scores_window = Scores()
@@ -82,6 +85,7 @@ def goBack(self):
 ### def show_game(self)
 The method destroys the current window and opens up the Game() Class as the new window.
 ``` py
+# Method to start a new game
 def show_game(self):
     self.master.destroy()
     ending_window = Game()
