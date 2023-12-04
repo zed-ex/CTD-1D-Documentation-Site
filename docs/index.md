@@ -21,3 +21,6 @@ Positioned as a tool for brain exercise, 2048 is designed to enhance strategic t
 
 ### How to Use / Gameplay
 Navigate the game by sliding numbered tiles across a grid. Merge identical tiles to create a new tile with a sum value, striving to reach the elusive 2048 tile through strategic manoeuvres. Beyond personal development, 2048 introduces a competitive edge with score rankings, encouraging friendly competition among peers. The game's vibrant colour aesthetic further appeals to children, making it an engaging and educational pastime for childhood development in critical thinking.
+
+### References:
+YouTube. (2020, May 15). How to build 2048 in 20 minutes (python and tkinter tutorial). YouTube. https://www.youtube.com/watch?v=b4XP2IcI-Bg
