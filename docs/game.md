@@ -2,10 +2,12 @@
 Initialise Game Tkinter frame.
 ```py
 def __init__(self, master = None):
+    # Initialize the frame
     tk.Frame.__init__(self, master)
     self.grid()
     self.master.title('CTD 1D Project Team 11C')
 
+    # Create the main grid for the game
     self.main_grid = tk.Frame(
         self, 
         bg=c.GRID_COLOR, 
@@ -17,6 +19,7 @@ def __init__(self, master = None):
     self.make_GUI()
     self.start_game()
 
+    # Bind arrow keys to game actions
     self.master.bind("<Left>", self.left)
     self.master.bind("<Right>", self.right)
     self.master.bind("<Up>", self.up)
@@ -30,6 +33,7 @@ Initialise Game Tkinter frame and create Score Header.
 ```py
 def make_GUI(self):   
     ### Make Grid Layout ###
+    # Create grid cells
     self.cells = []
     for i in range(4):
         row = []
@@ -62,6 +66,7 @@ def make_GUI(self):
         self.cells.append(row)
 
     ### Make Score Header ###
+    # Create score header
     score_frame = tk.Frame(self)
     score_frame.place(
         relx=0.5, 
@@ -112,6 +117,7 @@ def start_game(self):
         text="2"
         )
 
+    # Initialize the score
     self.score = 0
 
 ```
@@ -120,6 +126,7 @@ def start_game(self):
 Matrix Manipulation Function
 ``` py
 def stack(self):
+    # Stack non-zero values to the left
     new_matrix = [[0] * 4 for _ in range(4)]
     for i in range(4):
         fill_position = 0
@@ -135,6 +142,7 @@ def stack(self):
 Combine two tiles together and sum the values of the tiles.
 ``` py
 def combine(self):
+    # Combine adjacent equal values
     for i in range(4):
         for j in range(3):
             if self.matrix[i][j] != 0 and self.matrix[i][j] == self.matrix[i][j + 1]:
@@ -147,6 +155,7 @@ def combine(self):
 Reverse function.
 ``` py
  def reverse(self):
+    # Reverse the order of values in each row
     new_matrix = []
     for i in range(4):
         new_matrix.append([])
@@ -159,6 +168,7 @@ Reverse function.
 Transpose function.
 ``` py
 def transpose(self):
+    # Transpose the matrix
     new_matrix = [[0] * 4 for _ in range(4)]
     for i in range(4):
         for j in range(4):
@@ -212,6 +222,7 @@ def update_GUI(self):
 Left-arrow key function.
 ``` py
 def left(self, event):
+    # Move left
     self.stack()
     self.combine()
     self.stack()
@@ -224,6 +235,7 @@ def left(self, event):
 Right-arrow key function.
 ``` py
 def right(self, event):
+    # Move right
     self.reverse()
     self.stack()
     self.combine()
@@ -238,6 +250,7 @@ def right(self, event):
 Up-arrow key function.
 ``` py
 def up(self, event):
+    # Move up
     self.transpose()
     self.stack()
     self.combine()
@@ -252,6 +265,7 @@ def up(self, event):
 Down-arrow key function.
 ``` py
 def down(self, event):
+    # Move down
     self.transpose()
     self.reverse()        
     self.stack()
@@ -319,6 +333,7 @@ def game_over(self):
 The method destroys the current window and opens up the signUp() Class as the new window.
 ``` py
 def show_signup(self):
+    # Display the sign-up window
     self.destroy()
     signup_window = signUp()
     signup_window.mainloop()
