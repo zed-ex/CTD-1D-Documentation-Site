@@ -2,6 +2,7 @@
 Initialise SignUp Tkinter frame. 
 ``` py
  def __init__(self, master = None):
+    # Initialize the frame
     tk.Frame.__init__(self, master, bg='#F2D0A4')
     self.grid(sticky="nsew")
     self.master.columnconfigure(0, weight=1)
@@ -16,6 +17,7 @@ Creation of customization texts to be displayed on the screen with access
 to the place method to achieve the desired position of the label element. 
 ``` py
     ### Label
+    # Create sign-up page layout
     self.label = tk.Label(
         self, 
         text="Fill in to Record Your Score!", 
@@ -58,7 +60,7 @@ Entry widget `self.user_entry` is validated according to the rules defined in th
 
 `self.next_btn`: This interface calls the method `show_scores()` upon being pressed to transition to the next UI window.
 ``` py
-    ### Submit Btn
+    ### Create submit button
     self.submit_btn = tk.Button(
         self,
         text="SUBMIT",
@@ -70,7 +72,7 @@ Entry widget `self.user_entry` is validated according to the rules defined in th
     self.submit_btn.place(relx=0.72, rely=0.3, anchor=tk.CENTER)
 
 
-    ### Next Btn 
+    ### Create next button 
     self.next_btn = tk.Button(
         self, 
         text="NEXT >",
@@ -83,6 +85,7 @@ Entry widget `self.user_entry` is validated according to the rules defined in th
 ### def validate_username(self, new_value)
 The function is expected to return a boolean value indicating whether the input is valid or not. If the input is valid, the edit is allowed; otherwise, the edit is rejected. Its purpose is to check if the username length is less than or equal to 20.
 ``` py
+# Validate the length of the username
 def validate_username(self, new_value):
         return len(new_value) <= 20
 ```
@@ -91,6 +94,7 @@ def validate_username(self, new_value):
 The method changes the state of the button to disabled preventing further user entries and uploads the user's username and score to the database. 
 The `.strip()` method is used to remove any excess spaces before and after the username input. 
 ``` py
+    # Upload the score to the database
     def dbUpload(self):
         self.submit_btn.configure(state='disabled')
         username = self.user_entry.get().strip()
@@ -100,6 +104,7 @@ The `.strip()` method is used to remove any excess spaces before and after the u
 ### def show_scores(self)
 The method destroys the current window and opens up the `Scores()` Class as the new window.
 ``` py
+# Show the scores window
 def show_scores(self):
         self.destroy()
         scores_window = Scores()
