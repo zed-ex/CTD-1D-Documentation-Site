@@ -2,12 +2,14 @@
 Initialise SplashScreen Tkinter frame.
 ``` py 
 def __init__(self, master = None):
+    # Initialize the frame
     tk.Frame.__init__(self, master)
     self.grid(sticky="nsew")
     self.master.geometry("600x600")
     self.master.configure(background="Black")
     self.master.title('CTD 1D Project Team 11C')    
 
+    # Set up splash screen layout    
     width=400
     height=400  
 
@@ -18,6 +20,7 @@ def __init__(self, master = None):
     label1.image = img
     label1.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
 
+   # Add "Play" button 
    self.bt1=tk.Button(
        self.master,
        text="Play",
@@ -28,7 +31,8 @@ def __init__(self, master = None):
         command=self.start
         )
     self.bt1.place(relx=0.15, rely=0.8, anchor=tk.CENTER)
-        
+
+    # Add "Exit" button        
     self.exit_button=tk.Button(
         self.master,
         text='Exit',
@@ -44,6 +48,7 @@ def __init__(self, master = None):
 ### def start(self)
 Start the game.
 ``` py
+# Start the game when "Play" button is pressed
 def start(self):
     self.master.destroy()
     start_window = Game()
@@ -53,6 +58,7 @@ def start(self):
 ### def quit(self)
 Quit the game.
 ```py
+# Quit the application when "Exit" button is pressed
 def quit(self):
     sys.exit()
 ```
