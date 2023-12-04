@@ -316,7 +316,7 @@ def game_over(self):
 ```
 
 ### def show_signup(self)
-Show sign up page.
+The method destroys the current window and opens up the signUp() Class as the new window.
 ``` py
 def show_signup(self):
     self.destroy()
